@@ -1,8 +1,8 @@
 # Wait for the TV-screen to be turned on...
 while ! $( tvservice --dumpedid /tmp/edid | fgrep -qv 'Nothing written!' ); do
-    bHadToWaitForScreen=true;
-    printf "===> Screen is not connected, off or in an unknown mode, waiting for it to become available...\n"
-    sleep 10;
+	bHadToWaitForScreen=true;
+	printf "===> Screen is not connected, off or in an unknown mode, waiting for it to become available...\n"
+	sleep 10;
 done;
 
 printf "===> Screen is on, extracting preferred mode...\n"
@@ -16,8 +16,3 @@ sleep 1;
 printf "===> Resetting frame-buffer to %dx%dx%d...\n" $_XRES $_YRES $_DEPTH
 fbset --all --geometry $_XRES $_YRES $_XRES $_YRES $_DEPTH -left 0 -right 0 -upper 0 -lower 0;
 sleep 1;
-
-if [ -f /boot/xinitrc ]; then
-    ln -fs /boot/xinitrc /home/pi/.xinitrc;
-    su - pi -c 'startx' &
-fi
