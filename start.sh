@@ -1,2 +1,2 @@
-xinit /root/xinitrc.sh
+xinit /display/xinitrc.sh
 npm start
