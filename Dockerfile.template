@@ -20,7 +20,7 @@ COPY package.json package.json
 # Set up the local display
 COPY display/config.txt /boot/config.txt
 COPY display/rc.local /etc/rc.local
-COPY display/initrc /boot/xinitrc
+COPY display/xinitrc /boot/xinitrc
 
 # This install npm dependencies on the resin.io build server,
 # making sure to clean up the artifacts it creates in order to reduce the image size.
