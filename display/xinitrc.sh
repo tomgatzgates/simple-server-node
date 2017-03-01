@@ -17,6 +17,9 @@ while true; do
     mkdir -p /home/pi/.config/chromium/Default
     sqlite3 /home/pi/.config/chromium/Default/Web\ Data "CREATE TABLE meta(key LONGVARCHAR NOT NULL UNIQUE PRIMARY KEY, value LONGVARCHAR); INSERT INTO meta VALUES('version','46'); CREATE TABLE keywords (foo INTEGER);";
 
+    # Generate the bare minimum to keep Epiphany happy!
+    mkdir -p /home/pi/.config/epiphany/Default
+
     # Disable DPMS / Screen blanking
     xset -dpms
     xset s off
@@ -31,6 +34,7 @@ while true; do
     matchbox-window-manager -use_titlebar no -use_cursor no &
 
     # Start the browser (See http://peter.sh/experiments/chromium-command-line-switches/)
-    chromium-browser  --app='https://www.bbc.co.uk'
+    # chromium-browser  --app='https://www.bbc.co.uk'
+    epiphany-browser -a --profile /home/pi/.config/epiphany/Default  https://www.bbc.co.uk
 
 done;
