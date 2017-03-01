@@ -1,0 +1,21 @@
+# 1900x1200 at 32bit depth, DMT mode
+disable_overscan=0
+overscan_left=38
+overscan_right=38
+overscan_top=25
+overscan_bottom=25
+
+framebuffer_width=1900
+framebuffer_height=1200
+framebuffer_depth=32
+framebuffer_ignore_alpha=1
+hdmi_pixel_encoding=1
+hdmi_group=2
+
+#uncomment to overclock the arm. 700 MHz is the default.
+arm_freq=1000
+
+core_freq=500
+sdram_freq=500
+over_voltage=2
+gpu_mem=128
