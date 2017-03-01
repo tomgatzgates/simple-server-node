@@ -15,7 +15,7 @@ RUN apt-get update && apt-get install -yq \
   sqlite3 \
   libnss3 \
   epiphany-browser \
-  chromium-browser \
+  chromium \
   xinit \
   alsa-utils \
   xautomation \

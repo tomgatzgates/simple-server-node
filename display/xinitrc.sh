@@ -2,10 +2,10 @@
 while true; do
 
 	# Clean up previously running apps, gracefully at first then harshly
-	killall -TERM epiphany 2>/dev/null;
+	killall -TERM chromium 2>/dev/null;
 	killall -TERM matchbox-window-manager 2>/dev/null;
 	sleep 2;
-	killall -9 epiphany 2>/dev/null;
+	killall -9 chromium 2>/dev/null;
 	killall -9 matchbox-window-manager 2>/dev/null;
 
 	# Clean out existing profile information
@@ -14,8 +14,8 @@ while true; do
 	rm -rf /root/.pki;
 
 	# Generate the bare minimum to keep Chromium happy!
-	# mkdir -p /root/.config/epiphany/Default
-	# sqlite3 /root/.config/epiphany/Default/Web\ Data "CREATE TABLE meta(key LONGVARCHAR NOT NULL UNIQUE PRIMARY KEY, value LONGVARCHAR); INSERT INTO meta VALUES('version','46'); CREATE TABLE keywords (foo INTEGER);";
+	mkdir -p /root/.config/chromium/Default
+	sqlite3 /root/.config/chromium/Default/Web\ Data "CREATE TABLE meta(key LONGVARCHAR NOT NULL UNIQUE PRIMARY KEY, value LONGVARCHAR); INSERT INTO meta VALUES('version','46'); CREATE TABLE keywords (foo INTEGER);";
 
 	# Disable DPMS / Screen blanking
 	xset -dpms
@@ -34,7 +34,7 @@ while true; do
     rm -rf /data/chrome
     [ ! -d /data/chrome ] && mkdir -p /data/chrome
 
-  mkdir ~/.config
-	epiphany-browser -a --profile ~/.config https://www.bbc.co.uk
+	# Start the browser (See http://peter.sh/experiments/chromium-command-line-switches/)
+	chromium  --app=https://bbc.co.uk --user-data-dir /data/chrome
 
 done;
