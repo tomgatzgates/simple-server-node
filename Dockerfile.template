@@ -12,9 +12,10 @@ RUN apt-get update && apt-get install -yq \
   xwit \
   sqlite3 \
   libnss3 \
-  chromium-browser \
+  epiphany-browser \
   xinit \
   alsa-utils \
+  xautomation \
   libasound2-dev && \
   apt-get clean && rm -rf /var/lib/apt/lists/*
 
@@ -23,6 +24,9 @@ WORKDIR /usr/src/app
 
 # Copies the package.json first for better cache on later pushes
 COPY package.json package.json
+
+# Set up the local display
+COPY display/config.txt /boot/config.txt
 
 # This install npm dependencies on the resin.io build server,
 # making sure to clean up the artifacts it creates in order to reduce the image size.
@@ -35,4 +39,4 @@ COPY . ./
 ENV INITSYSTEM on
 
 # start.sh will run when container starts up on the device
-CMD ["bash", "/start.sh"]
+CMD ["bash", "start.sh"]

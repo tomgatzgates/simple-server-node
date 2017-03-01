@@ -1,2 +1,3 @@
-xinit /display/xinitrc.sh
+ldconfig
+xinit /display/launch.sh
 npm start
