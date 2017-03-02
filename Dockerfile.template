@@ -5,19 +5,19 @@
 FROM resin/%%RESIN_MACHINE_NAME%%-node:latest
 
 RUN apt-get update && apt-get install -yq \
-  vim \
   matchbox \
-  supervisor \
-  xserver-xorg-core \
+  epiphany-browser \
+  chromium-browser \
   x11-xserver-utils \
   ttf-mscorefonts-installer \
   xwit \
-  fbset \
   sqlite3 \
   libnss3 \
-  epiphany-browser \
-  chromium-browser \
   xinit \
+  supervisor \
+  vim \
+  xserver-xorg-core \
+  fbset \
   alsa-utils \
   xautomation \
   libasound2-dev && \
@@ -27,6 +27,7 @@ RUN apt-get update && apt-get install -yq \
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # Configure Chromium
+COPY display/config.txt /boot/config.txt
 COPY display/rc.local /etc/rc.local
 COPY display/xinitrc.sh /root/.xinitrc
 COPY display/startx.sh /startx.sh
