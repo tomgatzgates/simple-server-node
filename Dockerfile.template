@@ -8,6 +8,7 @@ RUN apt-get update && apt-get install -yq \
   vim \
   matchbox \
   supervisor \
+  xserver-xorg-core \
   x11-xserver-utils \
   ttf-mscorefonts-installer \
   xwit \
@@ -15,7 +16,7 @@ RUN apt-get update && apt-get install -yq \
   sqlite3 \
   libnss3 \
   epiphany-browser \
-  chromium \
+  chromium-browser \
   xinit \
   alsa-utils \
   xautomation \
